@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 namespace CardsService
 {
-    public class Deck
+    public class Deck : IDeck
     {
         public Deck(VisualElement deck)
         {
@@ -13,6 +13,8 @@ namespace CardsService
             InitDeck();
             InitStrategies();
         }
+
+        public IDeckStrategy Current { get; private set; }
 
         private readonly VisualElement _deck;
 
@@ -25,6 +27,16 @@ namespace CardsService
                 Card card = new(child);
                 _cards.Add(card);
             }
+        }
+
+        public void SetStrategy(string strategy)
+        {
+
+        }
+
+        public void LoadImages()
+        {
+
         }
 
         private void InitStrategies()
