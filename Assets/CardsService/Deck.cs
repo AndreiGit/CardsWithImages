@@ -18,6 +18,8 @@ namespace CardsService
 
         private readonly VisualElement _deck;
 
+        private IDeckStrategyProvider _strategyProvider;
+
         private List<Card> _cards = new(); 
 
         private void InitDeck()
@@ -29,10 +31,7 @@ namespace CardsService
             }
         }
 
-        public void SetStrategy(string strategy)
-        {
-
-        }
+        public void SetStrategy(string strategy) => Current = _strategyProvider.GetStrategy(strategy);
 
         public void LoadImages()
         {
@@ -41,9 +40,11 @@ namespace CardsService
 
         private void InitStrategies()
         {
-            IDeckStrategy allAtOnce = new AllAtOnce();
-            IDeckStrategy oneByOne = new OneByOne();
-            IDeckStrategy whenImageReady = new WhenImageReady();
+            _strategyProvider = new DeckStrategyProvider();
+
+            _strategyProvider.AddStrategy(new AllAtOnce());
+            _strategyProvider.AddStrategy(new OneByOne());
+            _strategyProvider.AddStrategy(new WhenImageReady());
         }
     }
 }
