@@ -1,7 +1,7 @@
-using CardsService;
+using CardsService.CardStates;
 using UnityEngine.UIElements;
 
-namespace CardService
+namespace CardsService
 {
     public class Card
     {

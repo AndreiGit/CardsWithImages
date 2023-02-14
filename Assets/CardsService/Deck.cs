@@ -1,4 +1,4 @@
-﻿using CardService;
+﻿using CardsService.DeckStrategy;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 
@@ -11,6 +11,7 @@ namespace CardsService
             _deck = deck;
 
             InitDeck();
+            InitStrategies();
         }
 
         private readonly VisualElement _deck;
@@ -24,6 +25,13 @@ namespace CardsService
                 Card card = new(child);
                 _cards.Add(card);
             }
+        }
+
+        private void InitStrategies()
+        {
+            IDeckStrategy allAtOnce = new AllAtOnce();
+            IDeckStrategy oneByOne = new OneByOne();
+            IDeckStrategy whenImageReady = new WhenImageReady();
         }
     }
 }
