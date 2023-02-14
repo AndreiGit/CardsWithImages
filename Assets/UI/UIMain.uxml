@@ -7,34 +7,34 @@
                 <ui:Button text="Cancel" display-tooltip-when-elided="true" name="Cancel" class="button" />
                 <ui:DropdownField index="-1" choices="All At Once, One By One, When Image Ready" name="DropdownField" class="dropdown" />
             </ui:VisualElement>
-            <ui:VisualElement name="CardsContainer" style="flex-grow: 1; background-color: rgb(108, 108, 108); flex-direction: row;">
+            <ui:VisualElement name="Deck" style="flex-grow: 1; background-color: rgb(108, 108, 108); flex-direction: row;">
                 <ui:VisualElement name="CardContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); -unity-slice-left: 0; scale: 1 1;">
-                    <ui:VisualElement name="Shirt" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/Card/Shirt.png?fileID=2800000&amp;guid=d1a211179c1c11f4ebe2b524e05cd76b&amp;type=3#Shirt&apos;); display: flex;" />
-                    <ui:VisualElement name="Front" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/Card/Front.png?fileID=2800000&amp;guid=1d647dc1880568542ae149ad6d8d1102&amp;type=3#Front&apos;); display: none;">
+                    <ui:VisualElement name="Shirt" class="shirt" />
+                    <ui:VisualElement name="Front" class="front">
                         <ui:VisualElement name="Image" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="CardContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); -unity-slice-left: 0; scale: 1 1;">
-                    <ui:VisualElement name="Shirt" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/Card/Shirt.png?fileID=2800000&amp;guid=d1a211179c1c11f4ebe2b524e05cd76b&amp;type=3#Shirt&apos;); display: flex;" />
-                    <ui:VisualElement name="Front" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/Card/Front.png?fileID=2800000&amp;guid=1d647dc1880568542ae149ad6d8d1102&amp;type=3#Front&apos;); display: none;">
+                    <ui:VisualElement name="Shirt" class="shirt" />
+                    <ui:VisualElement name="Front" class="front">
                         <ui:VisualElement name="Image" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="CardContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); -unity-slice-left: 0; scale: 1 1;">
-                    <ui:VisualElement name="Shirt" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/Card/Shirt.png?fileID=2800000&amp;guid=d1a211179c1c11f4ebe2b524e05cd76b&amp;type=3#Shirt&apos;); display: flex;" />
-                    <ui:VisualElement name="Front" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/Card/Front.png?fileID=2800000&amp;guid=1d647dc1880568542ae149ad6d8d1102&amp;type=3#Front&apos;); display: none;">
+                    <ui:VisualElement name="Shirt" class="shirt" />
+                    <ui:VisualElement name="Front" class="front" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/Card/Front.png?fileID=2800000&amp;guid=1d647dc1880568542ae149ad6d8d1102&amp;type=3#Front&apos;); display: none;">
                         <ui:VisualElement name="Image" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="CardContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); -unity-slice-left: 0; scale: 1 1;">
-                    <ui:VisualElement name="Shirt" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/Card/Shirt.png?fileID=2800000&amp;guid=d1a211179c1c11f4ebe2b524e05cd76b&amp;type=3#Shirt&apos;); display: flex;" />
-                    <ui:VisualElement name="Front" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/Card/Front.png?fileID=2800000&amp;guid=1d647dc1880568542ae149ad6d8d1102&amp;type=3#Front&apos;); display: none;">
+                    <ui:VisualElement name="Shirt" class="shirt" />
+                    <ui:VisualElement name="Front" class="front" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/Card/Front.png?fileID=2800000&amp;guid=1d647dc1880568542ae149ad6d8d1102&amp;type=3#Front&apos;); display: none;">
                         <ui:VisualElement name="Image" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="CardContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); -unity-slice-left: 0; scale: 1 1;">
-                    <ui:VisualElement name="Shirt" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/Card/Shirt.png?fileID=2800000&amp;guid=d1a211179c1c11f4ebe2b524e05cd76b&amp;type=3#Shirt&apos;); display: flex;" />
-                    <ui:VisualElement name="Front" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/Card/Front.png?fileID=2800000&amp;guid=1d647dc1880568542ae149ad6d8d1102&amp;type=3#Front&apos;); display: none;">
+                    <ui:VisualElement name="Shirt" class="shirt" />
+                    <ui:VisualElement name="Front" class="front">
                         <ui:VisualElement name="Image" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
                     </ui:VisualElement>
                 </ui:VisualElement>

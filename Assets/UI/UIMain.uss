@@ -6,3 +6,17 @@
     height: 40px;
     width: 200px;
 }
+
+.shirt {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/UI/Card/Shirt.png?fileID=2800000&guid=d1a211179c1c11f4ebe2b524e05cd76b&type=3#Shirt');
+    display: flex;
+}
+
+.front {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/UI/Card/Front.png?fileID=2800000&guid=1d647dc1880568542ae149ad6d8d1102&type=3#Front');
+    display: none;
+}
