@@ -10,7 +10,8 @@ namespace CardsService
         {
             CardContainer = cardContainer;
 
-            _image = cardContainer.Q<VisualElement>("Front").Q<VisualElement>("Image");
+            _image = cardContainer.Q<VisualElement>(Constant.Front)
+                .Q<VisualElement>(Constant.Image);
 
             InitCardStates();
         }
@@ -27,8 +28,8 @@ namespace CardsService
         {
             CardStateProvider = new CardStateProvider();
 
-            CardStateProvider.AddState<Shirt>(new Shirt(CardContainer.Q<VisualElement>("Shirt")));
-            CardStateProvider.AddState<Front>(new Front(CardContainer.Q<VisualElement>("Front")));
+            CardStateProvider.AddState<Shirt>(new Shirt(CardContainer.Q<VisualElement>(Constant.Shirt)));
+            CardStateProvider.AddState<Front>(new Front(CardContainer.Q<VisualElement>(Constant.Front)));
             CardStateProvider.SetState<Shirt>();
         }
     }
