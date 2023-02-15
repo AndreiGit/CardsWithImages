@@ -12,11 +12,11 @@ namespace CardsService.DeckStrategy
             _cardAnimationController = new CardAnimationController();
         }
 
+        public string Name => Constant.AllAtOnceStrategy;
+
         private readonly IHTTPController _HTTPController;
 
         private readonly ICardAnimationController _cardAnimationController;
-
-        public string Name => Constant.AllAtOnceStrategy;
 
         public async UniTask LoadImagesAsync(Card[] cards)
         {
