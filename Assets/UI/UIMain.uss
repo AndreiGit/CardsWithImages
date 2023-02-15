@@ -20,3 +20,23 @@
     background-image: url('project://database/Assets/UI/Card/Front.png?fileID=2800000&guid=1d647dc1880568542ae149ad6d8d1102&type=3#Front');
     display: none;
 }
+
+#CardContainer {
+    flex-grow: 1;
+}
+
+.cardcontainer-scale-in {
+    transition-property: scale;
+    transition-duration: 0.3s;
+    scale: 0 1;
+    transition-timing-function: ease-out-bounce;
+    transition-delay: 0s;
+}
+
+.cardcontainer-scale-out {
+    transition-property: scale;
+    transition-duration: 0.3s;
+    scale: 1 1;
+    transition-timing-function: ease-out-bounce;
+    transition-delay: 0s;
+}

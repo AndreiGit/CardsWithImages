@@ -6,6 +6,6 @@ namespace CardsService
     {
         void SetStrategy(string strategy);
 
-        void LoadImages();
+        void LoadImagesAsync();
     }
 }

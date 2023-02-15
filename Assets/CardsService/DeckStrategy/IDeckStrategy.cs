@@ -1,9 +1,11 @@
-﻿namespace CardsService.DeckStrategy
+﻿using Cysharp.Threading.Tasks;
+
+namespace CardsService.DeckStrategy
 {
     public interface IDeckStrategy
     {
         public string Name { get; }
 
-        public void LoadImages(Card[] cards);
+        public UniTask LoadImagesAsync(Card[] cards);
     }
 }

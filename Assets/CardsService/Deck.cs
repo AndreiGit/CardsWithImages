@@ -1,5 +1,6 @@
 ﻿using CardsService.DeckStrategy;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace CardsService
@@ -34,7 +35,7 @@ namespace CardsService
 
         public void SetStrategy(string strategy) => _current = _strategyProvider.GetStrategy(strategy);
 
-        public void LoadImages() => _current.LoadImages(_cards.ToArray());
+        public async void LoadImagesAsync() => await _current.LoadImagesAsync(_cards.ToArray());
 
         private void InitStrategies()
         {
