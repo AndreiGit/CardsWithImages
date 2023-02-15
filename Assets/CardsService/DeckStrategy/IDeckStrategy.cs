@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using System.Threading;
 
 namespace CardsService.DeckStrategy
 {
@@ -6,6 +7,6 @@ namespace CardsService.DeckStrategy
     {
         public string Name { get; }
 
-        public UniTask LoadImagesAsync(Card[] cards);
+        public UniTask LoadImagesAsync(Card[] cards, CancellationToken cancellationToken);
     }
 }

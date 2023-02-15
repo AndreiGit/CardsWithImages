@@ -7,5 +7,7 @@ namespace CardsService
         void SetStrategy(string strategy);
 
         void LoadImagesAsync();
+
+        void CancelLoading();
     }
 }

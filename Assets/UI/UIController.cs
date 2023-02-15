@@ -1,6 +1,5 @@
 using CardsService;
 using UI;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 public class UIController : UIControllerBase
@@ -28,7 +27,7 @@ public class UIController : UIControllerBase
         _container = GetElement<VisualElement>("Root");
         _dropdownField = GetElementFrom<DropdownField>("DropdownField", _container);
         _load = RegisterClickFrom<Button>("Load", _container, (x) => _deck.LoadImagesAsync());  
-        _cancel = RegisterClickFrom<Button>("Cancel", _container, (x) => CancelLoad());     
+        _cancel = RegisterClickFrom<Button>("Cancel", _container, (x) => _deck.CancelLoading());     
     }
 
     private void InitDeck()
@@ -42,9 +41,4 @@ public class UIController : UIControllerBase
     }
 
     private void ChangedDropdawnValue(string value) => _deck.SetStrategy(value);
-
-    private void CancelLoad()
-    {
-        Debug.Log("Отмена загрузка колоды");
-    }
 }

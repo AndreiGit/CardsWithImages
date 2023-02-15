@@ -1,5 +1,6 @@
 ﻿using CardsService.CardStates;
 using Cysharp.Threading.Tasks;
+using System.Threading;
 
 namespace CardsService.DeckStrategy
 {
@@ -17,7 +18,7 @@ namespace CardsService.DeckStrategy
 
         private readonly ICardAnimationController _cardAnimationController;
 
-        public async UniTask LoadImagesAsync(Card[] cards)
+        public async UniTask LoadImagesAsync(Card[] cards, CancellationToken cancellationToken)
         {
             var cardsFlipBack = cards.Select(async card =>
             {

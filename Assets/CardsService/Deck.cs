@@ -1,6 +1,6 @@
 ﻿using CardsService.DeckStrategy;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Threading;
 using UnityEngine.UIElements;
 
 namespace CardsService
@@ -24,6 +24,8 @@ namespace CardsService
 
         private List<Card> _cards = new(); 
 
+        private CancellationTokenSource _tokenSource;
+
         private void InitDeck()
         {
             foreach (var child in _deck.Children())
@@ -35,7 +37,26 @@ namespace CardsService
 
         public void SetStrategy(string strategy) => _current = _strategyProvider.GetStrategy(strategy);
 
-        public async void LoadImagesAsync() => await _current.LoadImagesAsync(_cards.ToArray());
+        public async void LoadImagesAsync()
+        {
+            try
+            {
+                _tokenSource = new CancellationTokenSource();
+                await _current.LoadImagesAsync(_cards.ToArray(), _tokenSource.Token)
+                    .SuppressCancellationThrow();
+            }
+            finally
+            {
+                _tokenSource.Dispose();
+                _tokenSource = null;
+            }
+        }
+
+        public void CancelLoading()
+        {
+            if (_tokenSource is not null)
+                _tokenSource.Cancel();
+        }
 
         private void InitStrategies()
         {
