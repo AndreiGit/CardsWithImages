@@ -2,6 +2,9 @@
 {
     public class Shirt : ICardState
     {
+        public void Install()
+        {
 
+        }
     }
 }

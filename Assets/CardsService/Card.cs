@@ -14,6 +14,8 @@ namespace CardsService
 
         private readonly VisualElement _cardContainer;
 
+        private ICardState _currentState;
+
         private void InitCardStates()
         {
             ICardState shirtState = new Shirt();

@@ -14,9 +14,10 @@ namespace CardsService
             InitStrategies();
         }
 
-        public IDeckStrategy Current { get; private set; }
 
         private readonly VisualElement _deck;
+
+        private IDeckStrategy _current;
 
         private IDeckStrategyProvider _strategyProvider;
 
@@ -31,12 +32,9 @@ namespace CardsService
             }
         }
 
-        public void SetStrategy(string strategy) => Current = _strategyProvider.GetStrategy(strategy);
+        public void SetStrategy(string strategy) => _current = _strategyProvider.GetStrategy(strategy);
 
-        public void LoadImages()
-        {
-
-        }
+        public void LoadImages() => _current.LoadImages(_cards.ToArray());
 
         private void InitStrategies()
         {

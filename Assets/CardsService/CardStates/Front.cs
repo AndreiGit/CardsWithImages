@@ -2,6 +2,9 @@
 {
     public class Front : ICardState
     {
-
+        public void Install()
+        {
+           
+        }
     }
 }
