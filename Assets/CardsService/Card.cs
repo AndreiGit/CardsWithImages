@@ -29,6 +29,7 @@ namespace CardsService
 
             CardStateProvider.AddState<Shirt>(new Shirt(CardContainer.Q<VisualElement>("Shirt")));
             CardStateProvider.AddState<Front>(new Front(CardContainer.Q<VisualElement>("Front")));
+            CardStateProvider.SetState<Shirt>();
         }
     }
 }
