@@ -1,5 +1,5 @@
 using CardsService.CardStates;
-using System.Drawing;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace CardsService
@@ -17,19 +17,18 @@ namespace CardsService
 
         public readonly VisualElement CardContainer;
 
+        public ICardStateProvider CardStateProvider;
+
         private readonly VisualElement _image;
 
-        private ICardState _currentState;
-
-        public void SetTexture()
-        {
-
-        }
+        public void SetTexture(Texture2D texture) => _image.style.backgroundImage = texture;
 
         private void InitCardStates()
         {
-            ICardState shirtState = new Shirt(CardContainer.Q<VisualElement>("Shirt"));
-            ICardState frontState = new Front(CardContainer.Q<VisualElement>("Front"));
+            CardStateProvider = new CardStateProvider();
+
+            CardStateProvider.AddState<Shirt>(new Shirt(CardContainer.Q<VisualElement>("Shirt")));
+            CardStateProvider.AddState<Front>(new Front(CardContainer.Q<VisualElement>("Front")));
         }
     }
 }

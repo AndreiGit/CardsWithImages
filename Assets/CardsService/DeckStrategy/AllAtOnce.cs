@@ -1,3 +1,4 @@
+using CardsService.CardStates;
 using Cysharp.Threading.Tasks;
 using System;
 using UnityEngine.UIElements;
@@ -12,26 +13,34 @@ namespace CardsService.DeckStrategy
         {
             var cardsFlipBack = cards.Select(async card =>
             {
-                await PlayAnimationAsync(card.CardContainer);
+                //проигрывание анимации
+                await PlayAnimationAsync(card);
 
+                //скачивание текстуры с сайта
+
+                //установка текстуры
             });
 
+            //одновременный поворот рубашкой вверх
             await UniTask.WhenAll(cardsFlipBack);
+
+            //одновременный поворот картикой вверх
         }
 
-        private async UniTask PlayAnimationAsync(VisualElement cardContainer)
+        private async UniTask PlayAnimationAsync(Card card)
         {
             //переворот рубашкой вниз
-            cardContainer.RemoveFromClassList("cardcontainer-scale-out");
-            cardContainer.AddToClassList("cardcontainer-scale-in");
+            card.CardContainer.RemoveFromClassList("cardcontainer-scale-out");
+            card.CardContainer.AddToClassList("cardcontainer-scale-in");
             await UniTask.Delay(TimeSpan.FromSeconds(0.3f));
 
             //изменение состояния карты
-            Upheaval(cardContainer);
+            card.CardStateProvider.SetState<Front>();
+            Upheaval(card.CardContainer);
 
             //разворот картикой вверх
-            cardContainer.RemoveFromClassList("cardcontainer-scale-in");
-            cardContainer.AddToClassList("cardcontainer-scale-out");
+            card.CardContainer.RemoveFromClassList("cardcontainer-scale-in");
+            card.CardContainer.AddToClassList("cardcontainer-scale-out");
         }
 
         private void Upheaval(VisualElement cardContainer)
