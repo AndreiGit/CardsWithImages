@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 namespace CardsService
 {
-    public class HTTPController
+    public class HTTPController : IHTTPController
     {
         private string _url = "https://picsum.photos/200/300";
 

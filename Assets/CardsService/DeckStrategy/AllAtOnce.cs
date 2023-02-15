@@ -1,7 +1,6 @@
 using CardsService.CardStates;
 using Cysharp.Threading.Tasks;
 using System;
-using UnityEngine.UIElements;
 
 namespace CardsService.DeckStrategy
 {
@@ -9,10 +8,13 @@ namespace CardsService.DeckStrategy
     {
         public AllAtOnce() 
         {
-            _HTTPController = new();
+            _HTTPController = new HTTPController();
+            _cardAnimationController = new CardAnimationController();
         }
 
-        private readonly HTTPController _HTTPController;
+        private readonly IHTTPController _HTTPController;
+
+        private readonly ICardAnimationController _cardAnimationController;
 
         public string Name => Constant.AllAtOnceStrategy;
 
@@ -20,35 +22,21 @@ namespace CardsService.DeckStrategy
         {
             var cardsFlipBack = cards.Select(async card =>
             {
-                //проигрывание анимации
-                await PlayAnimationAsync(card);
+                var texture = _HTTPController.GetTextureAsync();
 
-                //скачивание текстуры с сайта
-                var texture = await _HTTPController.GetTextureAsync();
+                await _cardAnimationController.PlayAnimationAsync<Shirt>(card);
 
-                //установка текстуры
-                card.SetTexture(texture);
+                card.SetTexture(await texture);
             });
 
-            //одновременный поворот рубашкой вверх
             await UniTask.WhenAll(cardsFlipBack);
 
-            //одновременный поворот картикой вверх
-        }
+            var cardsFlipFront = cards.Select(async card =>
+            {
+                await _cardAnimationController.PlayAnimationAsync<Front>(card);
+            });
 
-        private async UniTask PlayAnimationAsync(Card card)
-        {
-            //переворот рубашкой вниз
-            card.CardContainer.RemoveFromClassList("cardcontainer-scale-out");
-            card.CardContainer.AddToClassList("cardcontainer-scale-in");
-            await UniTask.Delay(TimeSpan.FromSeconds(0.3f));
-
-            //изменение состояния карты
-            card.CardStateProvider.SetState<Front>();
-
-            //разворот картикой вверх
-            card.CardContainer.RemoveFromClassList("cardcontainer-scale-in");
-            card.CardContainer.AddToClassList("cardcontainer-scale-out");
+            await UniTask.WhenAll(cardsFlipFront);
         }
     }
 }
