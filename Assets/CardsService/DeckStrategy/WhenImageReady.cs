@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using CardsService.CardStates;
+using Cysharp.Threading.Tasks;
 
 namespace CardsService.DeckStrategy
 {
@@ -18,7 +19,18 @@ namespace CardsService.DeckStrategy
 
         public async UniTask LoadImagesAsync(Card[] cards)
         {
+            var cardsFlipBack = cards.Select(async card =>
+            {
+                var texture = _HTTPController.GetTextureAsync();
 
+                await _cardAnimationController.PlayAnimationAsync<Shirt>(card);
+
+                card.SetTexture(await texture);
+
+                await _cardAnimationController.PlayAnimationAsync<Front>(card);
+            });
+
+            await UniTask.WhenAll(cardsFlipBack);
         }
     }
 }
