@@ -5,6 +5,6 @@ namespace CardsService
 {
     public interface ICardAnimationController
     {
-        UniTask PlayAnimationAsync<T>(Card card) where T : ICardState;
+        UniTask PlayAnimationAsync<T>(ICard card) where T : ICardState;
     }
 }

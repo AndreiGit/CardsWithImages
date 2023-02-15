@@ -8,7 +8,7 @@ namespace CardsService
     {
         private float _duration = 0.3f;
 
-        public async UniTask PlayAnimationAsync<T>(Card card) where T : ICardState
+        public async UniTask PlayAnimationAsync<T>(ICard card) where T : ICardState
         {
             var currentState = card.CardStateProvider.Current;
 

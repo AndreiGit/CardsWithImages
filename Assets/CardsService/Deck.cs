@@ -22,7 +22,7 @@ namespace CardsService
 
         private IDeckStrategyProvider _strategyProvider;
 
-        private List<Card> _cards = new(); 
+        private List<ICard> _cards = new(); 
 
         private CancellationTokenSource _tokenSource;
 

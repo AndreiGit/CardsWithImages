@@ -7,6 +7,6 @@ namespace CardsService.DeckStrategy
     {
         public string Name { get; }
 
-        public UniTask LoadImagesAsync(Card[] cards, CancellationToken cancellationToken);
+        public UniTask LoadImagesAsync(ICard[] cards, CancellationToken cancellationToken);
     }
 }

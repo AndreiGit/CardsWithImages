@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 namespace CardsService
 {
-    public class Card
+    public class Card : ICard
     {
         public Card(VisualElement cardContainer) 
         {
@@ -15,9 +15,9 @@ namespace CardsService
             InitCardStates();
         }
 
-        public readonly VisualElement CardContainer;
+        public VisualElement CardContainer { get; private set; }
 
-        public ICardStateProvider CardStateProvider;
+        public ICardStateProvider CardStateProvider { get; private set; }
 
         private readonly VisualElement _image;
 

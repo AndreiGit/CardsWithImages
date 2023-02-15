@@ -19,7 +19,7 @@ namespace CardsService.DeckStrategy
 
         private readonly ICardAnimationController _cardAnimationController;
 
-        public async UniTask LoadImagesAsync(Card[] cards, CancellationToken cancellationToken)
+        public async UniTask LoadImagesAsync(ICard[] cards, CancellationToken cancellationToken)
         {
             var cardsFlipBack = cards.Select(async card =>
             {
