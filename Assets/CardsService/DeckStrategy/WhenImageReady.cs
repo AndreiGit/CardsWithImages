@@ -22,11 +22,13 @@ namespace CardsService.DeckStrategy
         {
             var cardsFlipBack = cards.Select(async card =>
             {
-                var texture = _HTTPController.GetTextureAsync();
+                var texture = _HTTPController.GetTextureAsync(cancellationToken);
 
                 await _cardAnimationController.PlayAnimationAsync<Shirt>(card);
 
                 card.SetTexture(await texture);
+
+                cancellationToken.ThrowIfCancellationRequested();
 
                 await _cardAnimationController.PlayAnimationAsync<Front>(card);
             });

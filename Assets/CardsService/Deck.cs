@@ -1,4 +1,5 @@
 ﻿using CardsService.DeckStrategy;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine.UIElements;
@@ -37,11 +38,13 @@ namespace CardsService
 
         public void SetStrategy(string strategy) => _current = _strategyProvider.GetStrategy(strategy);
 
-        public async void LoadImagesAsync()
+        public async void LoadImagesAsync(Action<bool> actionSetUIInteractable)
         {
             try
             {
+                actionSetUIInteractable?.Invoke(false);
                 _tokenSource = new CancellationTokenSource();
+
                 await _current.LoadImagesAsync(_cards.ToArray(), _tokenSource.Token)
                     .SuppressCancellationThrow();
             }
@@ -49,13 +52,16 @@ namespace CardsService
             {
                 _tokenSource.Dispose();
                 _tokenSource = null;
+                actionSetUIInteractable?.Invoke(true);
             }
         }
 
         public void CancelLoading()
         {
             if (_tokenSource is not null)
+            {
                 _tokenSource.Cancel();
+            }
         }
 
         private void InitStrategies()

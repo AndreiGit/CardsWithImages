@@ -1,5 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
-using System.Net.Http;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -9,11 +9,11 @@ namespace CardsService
     {
         private string _url = "https://picsum.photos/200/300";
 
-        public async UniTask<Texture2D> GetTextureAsync()
+        public async UniTask<Texture2D> GetTextureAsync(CancellationToken cancellationToken)
         {
             using var www = UnityWebRequestTexture.GetTexture(_url);
 
-            await www.SendWebRequest();
+            await www.SendWebRequest().WithCancellation(cancellationToken);
 
             return www.result == UnityWebRequest.Result.Success ? DownloadHandlerTexture.GetContent(www) : null;
         }

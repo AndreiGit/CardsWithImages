@@ -1,4 +1,6 @@
 ﻿using CardsService.DeckStrategy;
+using System;
+using UnityEngine.UIElements;
 
 namespace CardsService
 {
@@ -6,7 +8,7 @@ namespace CardsService
     {
         void SetStrategy(string strategy);
 
-        void LoadImagesAsync();
+        void LoadImagesAsync(Action<bool> actionSetUIInteractable);
 
         void CancelLoading();
     }
