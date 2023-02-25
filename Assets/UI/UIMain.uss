@@ -6,3 +6,9 @@
     height: 40px;
     width: 200px;
 }
+
+#Deck {
+    flex-grow: 1;
+    background-color: rgb(108, 108, 108);
+    flex-direction: row;
+}

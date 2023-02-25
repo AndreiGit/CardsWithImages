@@ -17,7 +17,7 @@
     height: 100%;
 }
 
-#CardContainer {
+.card-container {
     flex-grow: 1;
 }
 

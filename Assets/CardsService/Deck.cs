@@ -8,11 +8,10 @@ namespace CardsService
 {
     public class Deck : IDeck
     {
-        public Deck(VisualElement deck)
+        public Deck(VisualElement deck, VisualTreeAsset cardContainer, int cardCount)
         {
             _deck = deck;
-
-            InitDeck();
+            InitDeck(cardContainer, cardCount);
             InitStrategies();
         }
 
@@ -27,11 +26,14 @@ namespace CardsService
 
         private CancellationTokenSource _tokenSource;
 
-        private void InitDeck()
+        private void InitDeck(VisualTreeAsset cardContainer, int cardCount)
         {
-            foreach (var child in _deck.Children())
+            for (int i = 0; i < cardCount; i++) 
             {
-                Card card = new(child);
+                VisualElement cardContainerItem = cardContainer.Instantiate();
+                cardContainerItem.AddToClassList("card-container");
+                _deck.Add(cardContainerItem);
+                Card card = new(cardContainerItem);
                 _cards.Add(card);
             }
         }
