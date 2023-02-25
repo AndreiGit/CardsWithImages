@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Card/CardContainer.uss?fileID=7433441132597879392&amp;guid=a2e64b89e139e80489c52e3886306786&amp;type=3#CardContainer" />
+    <ui:VisualElement name="CardContainer">
+        <ui:VisualElement name="Shirt" class="shirt" style="display: flex;" />
+        <ui:VisualElement name="Front" style="display: none;">
+            <ui:VisualElement name="Image" class="image" />
+            <ui:VisualElement name="Border" class="front" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

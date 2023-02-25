@@ -1,0 +1,55 @@
+.shirt {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/UI/Card/Shirt.png?fileID=2800000&guid=d1a211179c1c11f4ebe2b524e05cd76b&type=3#Shirt');
+    display: flex;
+}
+
+.front {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/UI/Card/Front.png?fileID=2800000&guid=1d647dc1880568542ae149ad6d8d1102&type=3#Front');
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+}
+
+#CardContainer {
+    flex-grow: 1;
+}
+
+.image {
+    width: 85%;
+    height: 85%;
+    -unity-background-scale-mode: scale-and-crop;
+    flex-grow: 0;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#Front {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+}
+
+.cardcontainer-scale-in {
+    transition-property: scale;
+    transition-duration: 0.3s;
+    scale: 0 1;
+    transition-timing-function: ease-out-bounce;
+    transition-delay: 0s;
+}
+
+.cardcontainer-scale-out {
+    transition-property: scale;
+    transition-duration: 0.3s;
+    scale: 1 1;
+    transition-timing-function: ease-out-bounce;
+    transition-delay: 0s;
+}
