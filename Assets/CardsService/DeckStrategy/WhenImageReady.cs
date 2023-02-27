@@ -6,10 +6,10 @@ namespace CardsService.DeckStrategy
 {
     public class WhenImageReady : IDeckStrategy
     {
-        public WhenImageReady() 
+        public WhenImageReady(IHTTPController HTTPController, ICardAnimationController cardAnimationController) 
         {
-            _HTTPController = new HTTPController();
-            _cardAnimationController = new CardAnimationController();
+            _HTTPController = HTTPController;
+            _cardAnimationController = cardAnimationController;
         }
 
         public string Name => Constant.WhenImageReadyStrategy;

@@ -7,10 +7,10 @@ namespace CardsService.DeckStrategy
 {
     public class AllAtOnce : IDeckStrategy
     {
-        public AllAtOnce() 
+        public AllAtOnce(IHTTPController HTTPController, ICardAnimationController cardAnimationController) 
         {
-            _HTTPController = new HTTPController();
-            _cardAnimationController = new CardAnimationController();
+            _HTTPController = HTTPController;
+            _cardAnimationController = cardAnimationController;
         }
 
         public string Name => Constant.AllAtOnceStrategy;

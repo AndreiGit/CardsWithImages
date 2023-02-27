@@ -22,7 +22,11 @@ namespace CardsService
 
         private readonly VisualElement _image;
 
-        public void SetTexture(Texture2D texture) => _image.style.backgroundImage = texture;
+        public void SetTexture(Texture2D texture)
+        {
+            Texture2D.Destroy(_image.style.backgroundImage.value.texture);
+            _image.style.backgroundImage = texture;
+        }
 
         private void InitCardStates()
         {

@@ -1,6 +1,5 @@
 using EntryPoint;
 using UI;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 public class UIController : UIControllerBase

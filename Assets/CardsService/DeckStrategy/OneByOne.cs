@@ -7,10 +7,10 @@ namespace CardsService.DeckStrategy
 {
     public class OneByOne : IDeckStrategy
     {
-        public OneByOne()
+        public OneByOne(IHTTPController HTTPController, ICardAnimationController cardAnimationController)
         {
-            _HTTPController = new HTTPController();
-            _cardAnimationController = new CardAnimationController();
+            _HTTPController = HTTPController;
+            _cardAnimationController = cardAnimationController;
         }
 
         public string Name => Constant.OneByOneStrategy;

@@ -61,18 +61,19 @@ namespace CardsService
         public void CancelLoading()
         {
             if (_tokenSource is not null)
-            {
                 _tokenSource.Cancel();
-            }
         }
 
         private void InitStrategies()
         {
             _strategyProvider = new DeckStrategyProvider();
 
-            _strategyProvider.AddStrategy(new AllAtOnce());
-            _strategyProvider.AddStrategy(new OneByOne());
-            _strategyProvider.AddStrategy(new WhenImageReady());
+            IHTTPController httpController = new HTTPController();
+            ICardAnimationController cardAnimationController = new CardAnimationController();
+
+            _strategyProvider.AddStrategy(new AllAtOnce(httpController, cardAnimationController));
+            _strategyProvider.AddStrategy(new OneByOne(httpController, cardAnimationController));
+            _strategyProvider.AddStrategy(new WhenImageReady(httpController, cardAnimationController));
         }
     }
 }
